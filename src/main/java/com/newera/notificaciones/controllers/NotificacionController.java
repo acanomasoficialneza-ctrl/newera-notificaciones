@@ -18,6 +18,11 @@ public class NotificacionController {
     private final NotificacionService notificacionService;
     private final AlertaCampanitaRepository alertaRepository;
 
+    @GetMapping(value = "/stream/{idUsuario}", produces = org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE)
+    public org.springframework.web.servlet.mvc.method.annotation.SseEmitter streamNotificaciones(@PathVariable Integer idUsuario) {
+        return notificacionService.subscribe(idUsuario);
+    }
+
     @PostMapping("/enviar")
     public ResponseEntity<String> enviarNotificacion(@RequestBody NotificacionRequest request) {
         notificacionService.procesarNotificacion(request);

@@ -23,6 +23,9 @@ public class AlertaCampanita {
     @Column(name = "mensaje", columnDefinition = "TEXT", nullable = false)
     private String mensaje;
 
+    @Column(name = "tipo", length = 50)
+    private String tipo;
+
     @Column(name = "leido")
     private Boolean leido;
 

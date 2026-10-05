@@ -8,4 +8,5 @@ public class NotificacionRequest {
     private String correoDestino;
     private String titulo;
     private String mensaje;
+    private String tipo;
 }
